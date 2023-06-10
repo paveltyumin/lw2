@@ -1,0 +1,60 @@
+//Задайте массив вещественных случайных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Задаем размер массива
+        int arrayLength = 10;
+
+        // Создаем экземпляр генератора случайных чисел
+        Random random = new Random();
+
+        // Создаем массив с заданным размером
+        double[] array = new double[arrayLength];
+
+        // Заполняем массив случайными числами
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = random.NextDouble() * 100; // Генерируем случайное число от 0 до 100
+        }
+
+        // Выводим исходный массив
+        Console.WriteLine("Исходный массив:");
+        PrintArray(array);
+
+        // Находим максимальный и минимальный элементы массива
+        double max = array[0];
+        double min = array[0];
+
+        for (int i = 1; i < array.Length; i++)
+        {
+            if (array[i] > max)
+            {
+                max = array[i];
+            }
+
+            if (array[i] < min)
+            {
+                min = array[i];
+            }
+        }
+
+        // Находим разницу между максимальным и минимальным элементами
+        double difference = max - min;
+
+        // Выводим разницу
+        Console.WriteLine("Разница между максимальным и минимальным элементами: " + difference);
+    }
+
+    static void PrintArray(double[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i] + " ");
+        }
+        Console.WriteLine();
+    }
+}
