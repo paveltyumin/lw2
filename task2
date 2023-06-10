@@ -1,0 +1,55 @@
+//Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Задаем размер массива
+        int arrayLength = 10;
+
+        // Создаем экземпляр генератора случайных чисел
+        Random random = new Random();
+
+        // Создаем массив с заданным размером
+        int[] array = new int[arrayLength];
+
+        // Заполняем массив случайными числами
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = random.Next(1, 100);
+        }
+
+        // Выводим исходный массив
+        Console.WriteLine("Исходный массив:");
+        PrintArray(array);
+
+        // Находим сумму элементов на нечетных индексах
+        int sum = CalculateSumOfOddIndexedElements(array);
+
+        // Выводим сумму
+        Console.WriteLine("Сумма элементов на нечетных индексах: " + sum);
+    }
+
+    static void PrintArray(int[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.Write(array[i] + " ");
+        }
+        Console.WriteLine();
+    }
+
+    static int CalculateSumOfOddIndexedElements(int[] array)
+    {
+        int sum = 0;
+
+        for (int i = 1; i < array.Length; i += 2)
+        {
+            sum += array[i];
+        }
+
+        return sum;
+    }
+}
